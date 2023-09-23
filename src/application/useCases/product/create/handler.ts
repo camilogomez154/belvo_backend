@@ -8,7 +8,7 @@ import { CreateNewProductValidator } from './validator';
 import { CreateNewProductCommand } from './command';
 
 @Injectable()
-export class createNewProductHandler
+export class CreateNewProductHandler
   implements IHandler<CreateNewProductCommand, ProductEntity>
 {
   constructor(

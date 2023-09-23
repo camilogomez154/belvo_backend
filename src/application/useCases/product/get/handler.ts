@@ -5,7 +5,7 @@ import { ProductEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
 @Injectable()
-export class getProductListHandler
+export class GetProductListHandler
   implements IHandler<undefined, ProductEntity[]>
 {
   constructor(private readonly productRepository: ProductRepositoryImpl) {}

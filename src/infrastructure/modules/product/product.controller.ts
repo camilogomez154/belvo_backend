@@ -1,8 +1,18 @@
 // Modules
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
 
 // Services
 import { ProductService } from './product.service';
+import { ProductDto } from './dto';
 
 /**
  * @class {ProductController}
@@ -13,18 +23,21 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  async create() {
-    return await this.productService.create();
+  async create(@Body() product: ProductDto) {
+    return await this.productService.create(product);
   }
 
   @Put(':id')
-  async update() {
-    return await this.productService.update();
+  async update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() product: ProductDto,
+  ) {
+    return await this.productService.update(id, product);
   }
 
   @Delete(':id')
-  async delete() {
-    return await this.productService.delete();
+  async delete(@Param('id', ParseUUIDPipe) id: string) {
+    return await this.productService.delete(id);
   }
 
   @Get()
@@ -33,7 +46,7 @@ export class ProductController {
   }
 
   @Get(':id')
-  async getById() {
-    return await this.productService.getById();
+  async getById(@Param('id', ParseUUIDPipe) id: string) {
+    return await this.productService.getById(id);
   }
 }
