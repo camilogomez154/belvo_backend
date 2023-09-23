@@ -1,13 +1,8 @@
+import { RecordWithoutDefaultColumns, IGenericRepository } from '../core';
 import { CategoryEntity } from '../entities';
-import {
-  RecordWithoutDefaultColumns,
-  IGenericRepository,
-  IRepository,
-} from '../core';
 
 export interface ICategoryRepository
-  extends IRepository<CategoryEntity>,
-    IGenericRepository<CategoryEntity> {
+  extends IGenericRepository<CategoryEntity> {
   create(
     record: RecordWithoutDefaultColumns<CategoryEntity>,
   ): Promise<CategoryEntity>;

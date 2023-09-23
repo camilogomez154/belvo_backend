@@ -1,13 +1,7 @@
 import { ProductEntity } from '../entities';
-import {
-  RecordWithoutDefaultColumns,
-  IGenericRepository,
-  IRepository,
-} from '../core';
+import { RecordWithoutDefaultColumns, IGenericRepository } from '../core';
 
-export interface IProductRepository
-  extends IRepository<ProductEntity>,
-    IGenericRepository<ProductEntity> {
+export interface IProductRepository extends IGenericRepository<ProductEntity> {
   create(
     record: RecordWithoutDefaultColumns<ProductEntity>,
   ): Promise<ProductEntity>;

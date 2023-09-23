@@ -1,13 +1,7 @@
+import { RecordWithoutDefaultColumns, IGenericRepository } from '../core';
 import { UserEntity } from '../entities';
-import {
-  RecordWithoutDefaultColumns,
-  IGenericRepository,
-  IRepository,
-} from '../core';
 
-export interface IUserRepository
-  extends IRepository<UserEntity>,
-    IGenericRepository<UserEntity> {
+export interface IUserRepository extends IGenericRepository<UserEntity> {
   create(record: RecordWithoutDefaultColumns<UserEntity>): Promise<UserEntity>;
   update(
     id: string,
