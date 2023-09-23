@@ -41,4 +41,8 @@ export class UserRepositoryImpl implements IUserRepository {
   async getById(id: string): Promise<UserEntity> {
     return await this.repository.findOne({ where: { id } });
   }
+
+  async getByEmail(email: string): Promise<UserEntity> {
+    return await this.repository.findOneBy({ email });
+  }
 }

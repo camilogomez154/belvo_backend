@@ -10,4 +10,5 @@ export interface IUserRepository extends IGenericRepository<UserEntity> {
   delete(id: string): Promise<number>;
   get(): Promise<UserEntity[]>;
   getById(id: string): Promise<UserEntity>;
+  getByEmail(email: string): Promise<UserEntity>;
 }
