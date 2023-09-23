@@ -1,14 +1,41 @@
 import { Injectable } from '@nestjs/common';
 
+import {
+  DeleteUserHandler,
+  CreateNewUserHandler,
+  UpdateUserHandler,
+  GetUserByIdHandler,
+  GetUserListHandler,
+} from '../../../application';
+import { UserDto } from './dto';
+
 @Injectable()
 export class UserService {
-  async create() {}
+  constructor(
+    private readonly createNewUserHandler: CreateNewUserHandler,
+    private readonly getUserByIdHandler: GetUserByIdHandler,
+    private readonly getUserListHandler: GetUserListHandler,
+    private readonly deleteUserHandler: DeleteUserHandler,
+    private readonly updateUserHandler: UpdateUserHandler,
+  ) {}
 
-  async update() {}
+  async create(user: UserDto) {
+    return await this.createNewUserHandler.execute(user);
+  }
 
-  async delete() {}
+  async update(id: string, user: UserDto) {
+    return await this.updateUserHandler.execute({ id, record: user });
+  }
 
-  async get() {}
+  async delete(id: string) {
+    return await this.deleteUserHandler.execute({ id });
+  }
 
-  async getById() {}
+  async get() {
+    return await this.getUserListHandler.execute();
+  }
+
+  async getById(id: string) {
+    return await this.getUserByIdHandler.execute({ id });
+  }
 }

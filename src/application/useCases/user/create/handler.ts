@@ -8,7 +8,7 @@ import { CreateNewUserValidator } from './validator';
 import { CreateNewUserCommand } from './command';
 
 @Injectable()
-export class createNewUserHandler
+export class CreateNewUserHandler
   implements IHandler<CreateNewUserCommand, UserEntity>
 {
   constructor(

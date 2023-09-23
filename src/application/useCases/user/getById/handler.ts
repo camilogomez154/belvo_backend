@@ -7,7 +7,7 @@ import { IHandler } from '../../../core';
 import { GetUserByIdCommand } from './command';
 
 @Injectable()
-export class getUserByIdHandler
+export class GetUserByIdHandler
   implements IHandler<GetUserByIdCommand, UserEntity>
 {
   constructor(private readonly userRepository: UserRepositoryImpl) {}
