@@ -1,8 +1,18 @@
 // Modules
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Put,
+} from '@nestjs/common';
 
 // Services
 import { CategoryService } from './category.service';
+import { CategoryDto } from './dto';
 
 /**
  * @class CategoryController
@@ -13,18 +23,21 @@ export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
-  async create() {
-    return await this.categoryService.create();
+  async create(@Body() category: CategoryDto) {
+    return await this.categoryService.create(category);
   }
 
   @Put(':id')
-  async update() {
-    return await this.categoryService.update();
+  async update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() category: CategoryDto,
+  ) {
+    return await this.categoryService.update(id, category);
   }
 
   @Delete(':id')
-  async delete() {
-    return await this.categoryService.delete();
+  async delete(@Param('id', ParseUUIDPipe) id: string) {
+    return await this.categoryService.delete(id);
   }
 
   @Get()
@@ -33,7 +46,7 @@ export class CategoryController {
   }
 
   @Get(':id')
-  async getById() {
-    return await this.categoryService.getById();
+  async getById(@Param('id', ParseUUIDPipe) id: string) {
+    return await this.categoryService.getById(id);
   }
 }

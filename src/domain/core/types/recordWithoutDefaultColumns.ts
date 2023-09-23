@@ -5,5 +5,5 @@ const entitiesToUse = Object.values(Entities);
 
 export type RecordWithoutDefaultColumns<T = typeof entitiesToUse> = Omit<
   Partial<T>,
-  keyof BaseEntity
+  keyof BaseEntity | 'products' | 'categories' | 'sessions' | 'user'
 >;

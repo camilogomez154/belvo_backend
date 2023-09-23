@@ -14,7 +14,7 @@ const entitiesToUse = Object.values(Entities);
       type: 'sqlite',
       logging: true,
     }),
-    ...entitiesToUse,
+    TypeOrmModule.forFeature(entitiesToUse),
   ],
   exports: [TypeOrmModule.forFeature(entitiesToUse)],
 })

@@ -5,7 +5,7 @@ import { CategoryEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
 @Injectable()
-export class getCategoryListHandler
+export class GetCategoryListHandler
   implements IHandler<undefined, CategoryEntity[]>
 {
   constructor(private readonly categoryRepository: CategoryRepositoryImpl) {}

@@ -8,7 +8,7 @@ import { CreateNewCategoryValidator } from './validator';
 import { CreateNewCategoryCommand } from './command';
 
 @Injectable()
-export class createNewCategoryHandler
+export class CreateNewCategoryHandler
   implements IHandler<CreateNewCategoryCommand, CategoryEntity>
 {
   constructor(

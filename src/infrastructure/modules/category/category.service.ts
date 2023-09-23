@@ -1,14 +1,41 @@
 import { Injectable } from '@nestjs/common';
 
+import {
+  DeleteCategoryHandler,
+  CreateNewCategoryHandler,
+  UpdateCategoryHandler,
+  GetCategoryByIdHandler,
+  GetCategoryListHandler,
+} from '../../../application';
+import { CategoryDto } from './dto';
+
 @Injectable()
 export class CategoryService {
-  async create() {}
+  constructor(
+    private readonly createNewCategoryHandler: CreateNewCategoryHandler,
+    private readonly getCategoryByIdHandler: GetCategoryByIdHandler,
+    private readonly getCategoryListHandler: GetCategoryListHandler,
+    private readonly deleteCategoryHandler: DeleteCategoryHandler,
+    private readonly updateCategoryHandler: UpdateCategoryHandler,
+  ) {}
 
-  async update() {}
+  async create(category: CategoryDto) {
+    return await this.createNewCategoryHandler.execute(category);
+  }
 
-  async delete() {}
+  async update(id: string, category: CategoryDto) {
+    return await this.updateCategoryHandler.execute({ id, record: category });
+  }
 
-  async get() {}
+  async delete(id: string) {
+    return await this.deleteCategoryHandler.execute({ id });
+  }
 
-  async getById() {}
+  async get() {
+    return await this.getCategoryListHandler.execute();
+  }
+
+  async getById(id: string) {
+    return await this.getCategoryByIdHandler.execute({ id });
+  }
 }
