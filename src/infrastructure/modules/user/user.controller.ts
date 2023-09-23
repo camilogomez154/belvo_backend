@@ -1,6 +1,7 @@
 // Modules
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -8,6 +9,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  UseInterceptors,
 } from '@nestjs/common';
 
 // Services
@@ -24,6 +26,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @ApiBody({ type: UserDto, required: true })
   @Post()
   async create(@Body() user: UserDto) {

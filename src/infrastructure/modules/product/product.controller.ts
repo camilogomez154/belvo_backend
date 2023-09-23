@@ -19,8 +19,8 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
  * @class {ProductController}
  * @param {ProductService}
  */
-@ApiTags('product')
 @Controller('product')
+@ApiTags('product')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 

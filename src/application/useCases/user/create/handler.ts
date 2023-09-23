@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { UserRepositoryImpl } from '../../../repositories';
 import { UserEntity } from '../../../../domain';
+import { Hash } from '../../../utilities';
 import { IHandler } from '../../../core';
 
 import { CreateNewUserValidator } from './validator';
@@ -18,6 +19,8 @@ export class CreateNewUserHandler
 
   async execute(command: CreateNewUserCommand): Promise<UserEntity> {
     await this.createNewUserValidator.validate(command);
+    command.password = Hash.encrypt(command.password);
+
     return await this.productRepository.create(command);
   }
 }

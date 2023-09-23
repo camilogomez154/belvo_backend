@@ -3,6 +3,7 @@ import { BaseEntity } from '../core';
 import { ProductEntity } from './product.entity';
 import { CategoryEntity } from './category.entity';
 import { SessionEntity } from './session.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity({ name: 'user' })
 @Index(['name'])
@@ -16,6 +17,7 @@ export class UserEntity extends BaseEntity {
   @Column()
   email: string;
 
+  @Exclude()
   @Column()
   password: string;
 
