@@ -1,11 +1,14 @@
+import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
+
 import {
   CategoryEntity,
   ICategoryRepository,
   RecordWithoutDefaultColumns,
 } from '../../domain/';
-import { InjectRepository } from '@nestjs/typeorm';
 
+@Injectable()
 export class CategoryRepositoryImpl implements ICategoryRepository {
   constructor(
     @InjectRepository(CategoryEntity)
@@ -40,5 +43,9 @@ export class CategoryRepositoryImpl implements ICategoryRepository {
 
   async getById(id: string): Promise<CategoryEntity> {
     return await this.repository.findOne({ where: { id } });
+  }
+
+  async getCategoryByName(name: string): Promise<CategoryEntity> {
+    return await this.repository.findOne({ where: { name } });
   }
 }
