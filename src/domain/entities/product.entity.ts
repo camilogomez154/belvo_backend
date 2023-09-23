@@ -3,7 +3,7 @@ import { BaseEntity } from '../core';
 import { UserEntity } from './user.entity';
 import { CategoryEntity } from './category.entity';
 
-@Entity()
+@Entity({ name: 'product' })
 @Index(['name'])
 export class ProductEntity extends BaseEntity {
   @Column()

@@ -4,7 +4,7 @@ import { ProductEntity } from './product.entity';
 import { CategoryEntity } from './category.entity';
 import { SessionEntity } from './session.entity';
 
-@Entity()
+@Entity({ name: 'user' })
 @Index(['name'])
 export class UserEntity extends BaseEntity {
   @Column()

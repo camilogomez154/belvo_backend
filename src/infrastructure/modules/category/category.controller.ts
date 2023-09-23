@@ -13,20 +13,24 @@ import {
 // Services
 import { CategoryService } from './category.service';
 import { CategoryDto } from './dto';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
 
 /**
  * @class CategoryController
  * @param {CategoryService}
  */
+@ApiTags('category')
 @Controller('category')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
+  @ApiBody({ type: CategoryDto, required: true })
   @Post()
   async create(@Body() category: CategoryDto) {
     return await this.categoryService.create(category);
   }
 
+  @ApiBody({ type: CategoryDto, required: true })
   @Put(':id')
   async update(
     @Param('id', ParseUUIDPipe) id: string,

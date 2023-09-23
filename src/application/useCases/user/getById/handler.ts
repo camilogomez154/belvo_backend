@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { UserRepositoryImpl } from '../../../repositories';
 import { UserEntity } from '../../../../domain';
@@ -13,6 +13,11 @@ export class GetUserByIdHandler
   constructor(private readonly userRepository: UserRepositoryImpl) {}
 
   async execute(command: GetUserByIdCommand): Promise<UserEntity> {
-    return await this.userRepository.getById(command.id);
+    const userFound = await this.userRepository.getById(command.id);
+
+    if (!userFound)
+      throw new NotFoundException(`User with id '${command.id}' not found.`);
+
+    return userFound;
   }
 }

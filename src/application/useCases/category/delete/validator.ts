@@ -1,10 +1,11 @@
-import { NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { CategoryRepositoryImpl } from '../../../repositories';
 import { IValidator } from '../../../core';
 
 import { DeleteCategoryCommand } from './command';
 
+@Injectable()
 export class DeleteCategoryValidator
   implements IValidator<DeleteCategoryCommand>
 {

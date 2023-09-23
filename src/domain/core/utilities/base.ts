@@ -9,7 +9,7 @@ export abstract class BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   readonly id!: string;
 
-  @Column()
+  @Column({ default: true })
   readonly isActive: boolean;
 
   @CreateDateColumn()

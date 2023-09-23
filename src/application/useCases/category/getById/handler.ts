@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { CategoryRepositoryImpl } from '../../../repositories';
 import { CategoryEntity } from '../../../../domain';
@@ -13,6 +13,13 @@ export class GetCategoryByIdHandler
   constructor(private readonly categoryRepository: CategoryRepositoryImpl) {}
 
   async execute(command: GetCategoryByIdCommand): Promise<CategoryEntity> {
-    return await this.categoryRepository.getById(command.id);
+    const categoryFound = await this.categoryRepository.getById(command.id);
+
+    if (!categoryFound)
+      throw new NotFoundException(
+        `Category with id '${command.id}' not found.`,
+      );
+
+    return categoryFound;
   }
 }

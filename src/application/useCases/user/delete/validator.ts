@@ -1,10 +1,11 @@
-import { NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { UserRepositoryImpl } from '../../../repositories';
 import { IValidator } from '../../../core';
 
 import { DeleteUserCommand } from './command';
 
+@Injectable()
 export class DeleteUserValidator implements IValidator<DeleteUserCommand> {
   constructor(private readonly userRepository: UserRepositoryImpl) {}
 

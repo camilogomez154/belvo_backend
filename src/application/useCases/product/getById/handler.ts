@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { ProductRepositoryImpl } from '../../../repositories';
 import { ProductEntity } from '../../../../domain';
@@ -13,6 +13,11 @@ export class GetProductByIdHandler
   constructor(private readonly productRepository: ProductRepositoryImpl) {}
 
   async execute(command: GetProductByIdCommand): Promise<ProductEntity> {
-    return await this.productRepository.getById(command.id);
+    const productFound = await this.productRepository.getById(command.id);
+
+    if (!productFound)
+      throw new NotFoundException(`Product with id '${command.id}' not found.`);
+
+    return productFound;
   }
 }

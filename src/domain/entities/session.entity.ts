@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../core';
 import { UserEntity } from './user.entity';
 
-@Entity()
+@Entity({ name: 'session' })
 export class SessionEntity extends BaseEntity {
   @Column({ default: 0 })
   rate: number;

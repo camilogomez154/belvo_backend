@@ -1,10 +1,11 @@
-import { NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { UserRepositoryImpl } from '../../../repositories';
 import { IValidator } from '../../../core';
 
 import { UpdateUserCommand } from './command';
 
+@Injectable()
 export class UpdateUserValidator implements IValidator<UpdateUserCommand> {
   constructor(private readonly userRepository: UserRepositoryImpl) {}
 
@@ -12,8 +13,6 @@ export class UpdateUserValidator implements IValidator<UpdateUserCommand> {
     const userFound = await this.userRepository.getById(command.id);
 
     if (!userFound)
-      throw new NotFoundException(
-        `Catagory with id '${command.id}' not found.`,
-      );
+      throw new NotFoundException(`User with id '${command.id}' not found.`);
   }
 }
