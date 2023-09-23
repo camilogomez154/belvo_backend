@@ -13,7 +13,7 @@ export class UserDto {
 
   @ApiProperty({
     description: 'Apellido del usuario en concreto.',
-    default: 'PerezRodriguez',
+    default: 'Perez Rodriguez',
     type: String,
   })
   @IsString()

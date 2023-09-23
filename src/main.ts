@@ -10,9 +10,10 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
-    .setTitle('API DE PRODUCTOS')
     .setDescription('Endpoints para cada servicio disponible de la api')
+    .setTitle('API DE PRODUCTOS')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

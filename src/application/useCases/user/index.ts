@@ -1,3 +1,6 @@
+export * from './authentication/handler';
+export * from './authentication/validator';
+
 export * from './create/handler';
 export * from './create/validator';
 

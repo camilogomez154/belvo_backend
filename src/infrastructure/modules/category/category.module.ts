@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
 
 import { DatasourceModule } from '../../datasource/datasource.module';
 import { CategoryController } from './category.controller';
@@ -13,10 +14,18 @@ import {
   GetCategoryByIdHandler,
   GetCategoryListHandler,
   UpdateCategoryValidator,
+  ValidateSessionTokenHandler,
+  ValidateSessionTokenValidator,
 } from '../../../application';
 
 @Module({
-  imports: [DatasourceModule],
+  imports: [
+    DatasourceModule,
+    JwtModule.register({
+      secret: 'texto_para_generar_un_token_bien_random_estatico_por_ahora_XD',
+      signOptions: { expiresIn: '60 minutes' },
+    }),
+  ],
   controllers: [CategoryController],
   providers: [
     CategoryRepositoryImpl,
@@ -28,6 +37,8 @@ import {
     GetCategoryByIdHandler,
     GetCategoryListHandler,
     UpdateCategoryValidator,
+    ValidateSessionTokenHandler,
+    ValidateSessionTokenValidator,
     CategoryService,
   ],
 })
