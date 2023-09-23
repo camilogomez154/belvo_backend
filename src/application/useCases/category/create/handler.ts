@@ -4,7 +4,7 @@ import { CategoryRepositoryImpl } from '../../../repositories';
 import { CategoryEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
-import { CreateNewCategoryValidator } from './validate';
+import { CreateNewCategoryValidator } from './validator';
 import { CreateNewCategoryCommand } from './command';
 
 @Injectable()

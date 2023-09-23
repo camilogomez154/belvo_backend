@@ -12,4 +12,5 @@ export interface IProductRepository extends IGenericRepository<ProductEntity> {
   delete(id: string): Promise<number>;
   get(): Promise<ProductEntity[]>;
   getById(id: string): Promise<ProductEntity>;
+  getByName(name: string): Promise<ProductEntity>;
 }

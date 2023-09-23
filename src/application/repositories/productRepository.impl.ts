@@ -41,4 +41,8 @@ export class ProductRepositoryImpl implements IProductRepository {
   async getById(id: string): Promise<ProductEntity> {
     return await this.repository.findOne({ where: { id } });
   }
+
+  async getByName(name: string): Promise<ProductEntity> {
+    return await this.repository.findOneBy({ name });
+  }
 }

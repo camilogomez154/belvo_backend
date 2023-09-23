@@ -45,7 +45,7 @@ export class CategoryRepositoryImpl implements ICategoryRepository {
     return await this.repository.findOne({ where: { id } });
   }
 
-  async getCategoryByName(name: string): Promise<CategoryEntity> {
+  async getByName(name: string): Promise<CategoryEntity> {
     return await this.repository.findOne({ where: { name } });
   }
 }

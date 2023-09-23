@@ -13,5 +13,5 @@ export interface ICategoryRepository
   delete(id: string): Promise<number>;
   get(): Promise<CategoryEntity[]>;
   getById(id: string): Promise<CategoryEntity>;
-  getCategoryByName(name: string): Promise<CategoryEntity>;
+  getByName(name: string): Promise<CategoryEntity>;
 }

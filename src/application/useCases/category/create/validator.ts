@@ -12,9 +12,7 @@ export class CreateNewCategoryValidator
   constructor(private readonly categoryRepository: CategoryRepositoryImpl) {}
 
   async validate(command: CreateNewCategoryCommand): Promise<void> {
-    const categoryFound = await this.categoryRepository.getCategoryByName(
-      command.name,
-    );
+    const categoryFound = await this.categoryRepository.getByName(command.name);
 
     if (categoryFound) {
       throw new ConflictException(

@@ -7,7 +7,7 @@ import { IHandler } from '../../../core';
 import { GetCategoryByIdCommand } from './command';
 
 @Injectable()
-export class getCategoryListHandler
+export class getCategoryByIdHandler
   implements IHandler<GetCategoryByIdCommand, CategoryEntity>
 {
   constructor(private readonly categoryRepository: CategoryRepositoryImpl) {}
