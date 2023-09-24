@@ -48,6 +48,7 @@ export class UserController {
     return await this.userService.create(user);
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @UseGuards(AuthorizationGuard)
   @ApiBody({ type: UserDto, required: true })
   @Put(':id')
@@ -55,18 +56,21 @@ export class UserController {
     return await this.userService.update(id, user);
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @UseGuards(AuthorizationGuard)
   @Delete(':id')
   async delete(@Param('id', ParseUUIDPipe) id: string) {
     return await this.userService.delete(id);
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @UseGuards(AuthorizationGuard)
   @Get()
   async get() {
     return await this.userService.get();
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @UseGuards(AuthorizationGuard)
   @Get(':id')
   async getById(@Param('id', ParseUUIDPipe) id: string) {

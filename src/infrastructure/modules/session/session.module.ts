@@ -12,6 +12,9 @@ import {
   CreateSessionTokenHandler,
   ValidateSessionTokenHandler,
   ValidateSessionTokenValidator,
+  CreateSessionHandler,
+  CreateSessionValidator,
+  SessionRepositoryImpl,
   UserRepositoryImpl,
 } from '../../../application';
 
@@ -30,6 +33,9 @@ import {
     CreateSessionTokenHandler,
     ValidateSessionTokenHandler,
     ValidateSessionTokenValidator,
+    CreateSessionHandler,
+    CreateSessionValidator,
+    SessionRepositoryImpl,
     UserRepositoryImpl,
     SessionService,
   ],

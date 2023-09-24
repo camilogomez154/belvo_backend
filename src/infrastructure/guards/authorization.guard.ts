@@ -13,8 +13,8 @@ export class AuthorizationGuard implements CanActivate {
     const request = context.switchToHttp().getRequest<Request>();
 
     const accessToken = request.headers.authorization?.split(' ').at(1);
-    const refreshToken = request.headers['refreshToken'] as string;
-    const sessionId = request.headers['sessionId'] as string;
+    const refreshToken = request.headers['refreshtoken'] as string;
+    const sessionId = request.headers['sessionid'] as string;
 
     await this.validateSessionTokenHandler.execute({
       accessToken,

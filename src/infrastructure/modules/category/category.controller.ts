@@ -1,5 +1,5 @@
 // Modules
-import { ApiBody, ApiHeaders, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiHeaders, ApiTags } from '@nestjs/swagger';
 import {
   Body,
   Controller,
@@ -32,6 +32,7 @@ import { CategoryService } from './category.service';
     description: 'session id es para validar la sesión en la base de datos.',
   },
 ])
+@ApiBearerAuth()
 @ApiTags('category')
 @Controller('category')
 export class CategoryController {
