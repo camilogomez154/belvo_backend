@@ -1,9 +1,6 @@
-import * as Entities from '../../entities';
-import { BaseEntity } from '../utilities';
+import { BaseEntity, entities } from '../../../libs/datasource';
 
-const entitiesToUse = Object.values(Entities);
-
-export type RecordWithoutDefaultColumns<T = typeof entitiesToUse> = Omit<
+export type RecordWithoutDefaultColumns<T = typeof entities> = Omit<
   Partial<T>,
   keyof BaseEntity | 'products' | 'categories' | 'sessions' | 'user'
 >;

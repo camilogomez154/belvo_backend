@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { ProductRepositoryImpl } from '../../../repositories';
-import { ProductEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
 import { GetProductByIdCommand } from './command';
+import { ProductEntity } from '../../../../libs/datasource';
 
 @Injectable()
 export class GetProductByIdHandler

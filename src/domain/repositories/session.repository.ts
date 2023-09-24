@@ -1,4 +1,4 @@
-import { SessionEntity, UserEntity } from '../entities';
+import { SessionEntity, UserEntity } from '../../libs/datasource';
 import { RecordWithoutDefaultColumns } from '../core';
 
 export interface ISessionRepository {

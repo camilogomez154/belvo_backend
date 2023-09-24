@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 import { ProductRepositoryImpl } from '../../../repositories';
-import { ProductEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
+import { ProductEntity } from '../../../../libs/datasource';
 
 @Injectable()
 export class GetProductListHandler

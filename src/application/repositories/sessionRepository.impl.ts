@@ -2,12 +2,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import {
-  ISessionRepository,
-  RecordWithoutDefaultColumns,
-  SessionEntity,
-  UserEntity,
-} from '../../domain';
+import { ISessionRepository, RecordWithoutDefaultColumns } from '../../domain';
+import { SessionEntity, UserEntity } from '../../libs/datasource';
 
 @Injectable()
 export class SessionRepositoryImpl implements ISessionRepository {

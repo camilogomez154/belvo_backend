@@ -1,3 +1,3 @@
 export * from './interfaces';
-export * from './utilities';
+export * from '../../libs/datasource/utilities';
 export * from './types';

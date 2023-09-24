@@ -1,5 +1,5 @@
 import { RecordWithoutDefaultColumns, IGenericRepository } from '../core';
-import { UserEntity } from '../entities';
+import { UserEntity } from '../../libs/datasource';
 
 export interface IUserRepository extends IGenericRepository<UserEntity> {
   create(record: RecordWithoutDefaultColumns<UserEntity>): Promise<UserEntity>;

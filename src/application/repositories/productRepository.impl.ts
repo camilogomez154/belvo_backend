@@ -1,10 +1,7 @@
 import { Repository } from 'typeorm';
-import {
-  ProductEntity,
-  IProductRepository,
-  RecordWithoutDefaultColumns,
-} from '../../domain/';
+import { IProductRepository, RecordWithoutDefaultColumns } from '../../domain/';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ProductEntity } from '../../libs/datasource';
 
 export class ProductRepositoryImpl implements IProductRepository {
   constructor(

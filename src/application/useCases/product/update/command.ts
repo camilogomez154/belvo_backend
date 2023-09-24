@@ -1,4 +1,5 @@
-import { ProductEntity, RecordWithoutDefaultColumns } from '../../../../domain';
+import { RecordWithoutDefaultColumns } from '../../../../domain';
+import { ProductEntity } from '../../../../libs/datasource';
 
 export type UpdateProductCommand = {
   id: string;

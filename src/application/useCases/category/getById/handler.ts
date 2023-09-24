@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { CategoryRepositoryImpl } from '../../../repositories';
-import { CategoryEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
 import { GetCategoryByIdCommand } from './command';
+import { CategoryEntity } from '../../../../libs/datasource';
 
 @Injectable()
 export class GetCategoryByIdHandler

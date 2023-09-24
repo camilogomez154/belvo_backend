@@ -1,7 +1,5 @@
-import {
-  CategoryEntity,
-  RecordWithoutDefaultColumns,
-} from '../../../../domain';
+import { RecordWithoutDefaultColumns } from '../../../../domain';
+import { CategoryEntity } from '../../../../libs/datasource';
 
 export type UpdateCategoryCommand = {
   id: string;

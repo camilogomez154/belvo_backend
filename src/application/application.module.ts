@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 
 import { respositories, useCases } from './core';
-import { DatasourceModule } from './datasource/datasource.module';
+import { DatasourceModule } from '../libs/datasource/datasource.module';
 
 @Module({
   imports: [

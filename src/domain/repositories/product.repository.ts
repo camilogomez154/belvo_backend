@@ -1,4 +1,4 @@
-import { ProductEntity } from '../entities';
+import { ProductEntity } from '../../libs/datasource';
 import { RecordWithoutDefaultColumns, IGenericRepository } from '../core';
 
 export interface IProductRepository extends IGenericRepository<ProductEntity> {

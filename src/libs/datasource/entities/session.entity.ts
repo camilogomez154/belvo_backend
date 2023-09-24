@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne } from 'typeorm';
-import { BaseEntity } from '../core';
+import { BaseEntity } from '../utilities';
 import { UserEntity } from './user.entity';
 
 @Entity({ name: 'session' })

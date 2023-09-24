@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
 import { CategoryRepositoryImpl } from '../../../repositories';
-import { CategoryEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
 import { CreateNewCategoryValidator } from './validator';
 import { CreateNewCategoryCommand } from './command';
+import { CategoryEntity } from '../../../../libs/datasource';
 
 @Injectable()
 export class CreateNewCategoryHandler

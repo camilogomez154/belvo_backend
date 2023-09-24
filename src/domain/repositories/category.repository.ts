@@ -1,5 +1,5 @@
 import { RecordWithoutDefaultColumns, IGenericRepository } from '../core';
-import { CategoryEntity } from '../entities';
+import { CategoryEntity } from '../../libs/datasource';
 
 export interface ICategoryRepository
   extends IGenericRepository<CategoryEntity> {
