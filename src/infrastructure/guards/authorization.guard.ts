@@ -1,12 +1,16 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Request } from 'express';
 
-import { ValidateSessionTokenHandler } from '../../application';
+import {
+  ValidateSessionTokenHandler,
+  UpdateSessionRateHandler,
+} from '../../application';
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {
   constructor(
     private readonly validateSessionTokenHandler: ValidateSessionTokenHandler,
+    private readonly updateSessionRateHandler: UpdateSessionRateHandler,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -21,6 +25,8 @@ export class AuthorizationGuard implements CanActivate {
       refreshToken,
       sessionId,
     });
+
+    await this.updateSessionRateHandler.execute({ id: sessionId });
 
     return true;
   }

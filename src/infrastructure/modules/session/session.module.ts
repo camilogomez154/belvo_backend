@@ -16,6 +16,8 @@ import {
   CreateSessionValidator,
   SessionRepositoryImpl,
   UserRepositoryImpl,
+  UpdateSessionRateHandler,
+  UpdateSessionRateValidator,
 } from '../../../application';
 
 @Module({
@@ -37,6 +39,8 @@ import {
     CreateSessionValidator,
     SessionRepositoryImpl,
     UserRepositoryImpl,
+    UpdateSessionRateHandler,
+    UpdateSessionRateValidator,
     SessionService,
   ],
 })

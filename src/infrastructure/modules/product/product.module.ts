@@ -17,6 +17,9 @@ import {
   UpdateProductValidator,
   ValidateSessionTokenHandler,
   ValidateSessionTokenValidator,
+  UpdateSessionRateHandler,
+  UpdateSessionRateValidator,
+  SessionRepositoryImpl,
 } from '../../../application';
 
 @Module({
@@ -40,6 +43,9 @@ import {
     UpdateProductValidator,
     ValidateSessionTokenHandler,
     ValidateSessionTokenValidator,
+    UpdateSessionRateHandler,
+    UpdateSessionRateValidator,
+    SessionRepositoryImpl,
     ProductService,
   ],
 })

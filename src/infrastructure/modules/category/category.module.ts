@@ -16,6 +16,9 @@ import {
   UpdateCategoryValidator,
   ValidateSessionTokenHandler,
   ValidateSessionTokenValidator,
+  UpdateSessionRateHandler,
+  UpdateSessionRateValidator,
+  SessionRepositoryImpl,
 } from '../../../application';
 
 @Module({
@@ -39,6 +42,9 @@ import {
     UpdateCategoryValidator,
     ValidateSessionTokenHandler,
     ValidateSessionTokenValidator,
+    UpdateSessionRateHandler,
+    UpdateSessionRateValidator,
+    SessionRepositoryImpl,
     CategoryService,
   ],
 })
