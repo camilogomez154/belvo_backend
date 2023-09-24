@@ -3,8 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { SessionRepositoryImpl } from '../../../repositories';
 import { IHandler } from '../../../core';
 
-import { UpdateSessionRateCommand } from './command';
 import { UpdateSessionRateValidator } from './validator';
+import { UpdateSessionRateCommand } from './command';
 
 @Injectable()
 export class UpdateSessionRateHandler

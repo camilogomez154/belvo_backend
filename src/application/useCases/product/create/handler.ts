@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
+import { ProductEntity } from '../../../../libs/datasource';
+
 import { ProductRepositoryImpl } from '../../../repositories';
 import { IHandler } from '../../../core';
 
 import { CreateNewProductValidator } from './validator';
 import { CreateNewProductCommand } from './command';
-import { ProductEntity } from '../../../../libs/datasource';
 
 @Injectable()
 export class CreateNewProductHandler

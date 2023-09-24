@@ -1,3 +1,3 @@
-export interface IValidator<T> {
-  validate(command: T): Promise<void>;
+export interface IValidator<T, R = void> {
+  validate(command: T): Promise<R>;
 }

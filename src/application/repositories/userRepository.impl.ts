@@ -1,6 +1,7 @@
-import { Repository } from 'typeorm';
-import { IUserRepository, RecordWithoutDefaultColumns } from '../../domain/';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+import { IUserRepository, RecordWithoutDefaultColumns } from '../../domain';
 import { UserEntity } from '../../libs/datasource';
 
 export class UserRepositoryImpl implements IUserRepository {

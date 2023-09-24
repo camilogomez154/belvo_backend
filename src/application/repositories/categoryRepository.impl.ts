@@ -1,12 +1,9 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { CategoryEntity } from '../../libs/datasource';
 
-import {
-  ICategoryRepository,
-  RecordWithoutDefaultColumns,
-} from '../../domain/';
+import { ICategoryRepository, RecordWithoutDefaultColumns } from '../../domain';
+import { CategoryEntity } from '../../libs/datasource';
 
 @Injectable()
 export class CategoryRepositoryImpl implements ICategoryRepository {

@@ -1,7 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
+import { UserEntity } from '../../../../libs/datasource';
+
 import { UserRepositoryImpl } from '../../../repositories';
-import { UserEntity } from '../../../../domain';
 import { IHandler } from '../../../core';
 
 import { GetUserByIdCommand } from './command';
