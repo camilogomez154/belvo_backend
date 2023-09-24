@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -15,6 +16,7 @@ export abstract class BaseEntity {
   @CreateDateColumn()
   readonly createdAt!: Date;
 
+  @Exclude()
   @UpdateDateColumn()
   readonly updatedAt!: Date;
 }

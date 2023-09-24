@@ -24,6 +24,9 @@ export class UserEntity extends BaseEntity {
   @Column({ nullable: true })
   image: string;
 
+  @Column({ nullable: true })
+  role: string;
+
   @OneToMany(() => ProductEntity, (product) => product.user)
   products: ProductEntity[];
 
