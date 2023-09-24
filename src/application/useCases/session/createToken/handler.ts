@@ -10,14 +10,16 @@ export class CreateSessionTokenHandler
 {
   constructor(private readonly jwtService: JwtService) {}
 
-  async execute({
-    id,
-    ...rest
-  }: CreateSessionTokenCommand): Promise<PayloadToken> {
-    const accessToken = await this.jwtService.signAsync({ sub: id, ...rest });
+  async execute(command: CreateSessionTokenCommand): Promise<PayloadToken> {
+    const accessToken = await this.jwtService.signAsync({ sub: command.id });
+    const refreshToken = await this.jwtService.signAsync(
+      { sub: command.id },
+      { expiresIn: '24h' },
+    );
+
     return {
-      refreshToken: '',
       sessionId: '',
+      refreshToken,
       accessToken,
     };
   }

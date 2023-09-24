@@ -5,8 +5,8 @@ import { IHandler } from '../../../core';
 
 import { ValidateSessionTokenValidator } from './validator';
 import {
-  ValidateSessionTokenCommand,
   ValidateSessionPayloadCommand,
+  ValidateSessionTokenCommand,
 } from './command';
 
 @Injectable()
