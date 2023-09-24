@@ -7,7 +7,7 @@ import {
   GetUserByIdHandler,
   GetUserListHandler,
 } from '../../../application';
-import { UserDto } from './dto';
+import { UserDto, UserUpdateDto } from './dto';
 
 @Injectable()
 export class UserService {
@@ -23,7 +23,7 @@ export class UserService {
     return await this.createNewUserHandler.execute(user);
   }
 
-  async update(id: string, user: UserDto) {
+  async update(id: string, user: UserUpdateDto) {
     return await this.updateUserHandler.execute({ id, record: user });
   }
 

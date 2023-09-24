@@ -18,7 +18,7 @@ import { AuthorizationGuard } from '../../guards';
 
 // Services
 import { UserService } from './user.service';
-import { UserDto } from './dto';
+import { UserDto, UserUpdateDto } from './dto';
 
 /**
  * @class UserController
@@ -52,7 +52,10 @@ export class UserController {
   @UseGuards(AuthorizationGuard)
   @ApiBody({ type: UserDto, required: true })
   @Put(':id')
-  async update(@Param('id', ParseUUIDPipe) id: string, @Body() user: UserDto) {
+  async update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() user: UserUpdateDto,
+  ) {
     return await this.userService.update(id, user);
   }
 
